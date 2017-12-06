@@ -20,7 +20,6 @@ def getTitle(url):
     except AttributeError as e: # 标签不存在
         return None
     return title
-# TODO: 这里有疑问。如果是页面不存在返回None没问题。但如果主机不存在直接报出异常，而不是返回None，这里有问题。
 title = getTitle("http://pythonscraping.com/pages/page1.html")
 if title == None:
     print("Title could not be found")
