@@ -41,11 +41,12 @@ except URLError as e:
 except HTTPError as e:
     print(e)
 bsObj = BeautifulSoup(html, "html.parser")
-downloadList = bsObj.findAll(src=True)
+downloadList = bsObj.findAll(src=True) # 所有带"src"的链接。
 
 for download in downloadList:
     fileUrl = getAbsoluteURL(baseUrl, download["src"])
     if fileUrl is not None:
         print(fileUrl)
-
-urlretrieve(fileUrl, getDownloadPath(baseUrl, fileUrl, downloadDirectory))
+getDownloadPath(baseUrl, fileUrl, downloadDirectory)
+# 下载最后一个图像。
+# urlretrieve(fileUrl, getDownloadPath(baseUrl, fileUrl, downloadDirectory))
