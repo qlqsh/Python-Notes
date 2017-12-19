@@ -15,10 +15,12 @@ cur.execute("USE scraping")
 random.seed(datetime.datetime.now())
 
 def store(title, content):
+    """存储数据到数据库。光标与连接操作分离。"""
     cur.execute("INSERT INTO pages(title, content) VALUES (\"%s\", \"%s\")", (title, content))
     cur.connection.commit()
 
 def getLinks(articleUrl):
+    """获取'/wiki/（不包含:）xxxx'格式的所有链接。"""
     try:
         html = urlopen("http://en.wikipedia.org"+articleUrl)
     except URLError as e:
