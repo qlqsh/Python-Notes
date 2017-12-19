@@ -4,6 +4,9 @@
 from bs4 import BeautifulSoup
 import re
 import pymysql
+from urllib.request import urlopen
+from urllib.error import HTTPError
+from urllib.error import URLError
 
 conn = pymysql.connect(host='127.0.0.1', unix_socket='/tmp/mysql.sock', user='root', passwd='nianchuanyuan', db='mysql', charset='utf8')
 cur = conn.cursor()

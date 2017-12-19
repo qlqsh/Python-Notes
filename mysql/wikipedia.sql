@@ -1,0 +1,13 @@
+CREATE TABLE `wikipedia`.`pages`(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `url` VARCHAR(255) NOT NULL,
+    `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(`id`)
+)
+CREATE TABLE `wikipedia`.`links`(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `fromPageId` INT NULL,
+    `toPageId` INT NULL,
+    `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(`id`)
+)
