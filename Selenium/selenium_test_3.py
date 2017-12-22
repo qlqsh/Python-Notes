@@ -16,6 +16,7 @@ def waitForLoad(driver):
             print("Timing out after 10 seconds and returning")
             return
         time.sleep(.5)
+        # 监视DOM中的一个元素，重复调用这个元素直到Selenium抛出异常。说明元素不在DOM里了，说明网站已经跳转。
         try:
             elem == driver.find_element_by_tag_name("html")
         except StaleElementReferenceException:
