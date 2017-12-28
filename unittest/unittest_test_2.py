@@ -9,7 +9,7 @@ import unittest
 class TestWikipedia(unittest.TestCase):
     bsObj = None
     def setUpClass():
-        """初始化类，仅运行一次。"""
+        """仅在类的初始化阶段运行一次。"""
         global bsObj
         url = "http://en.wikipedia.org/wiki/Monty_Python"
         bsObj = BeautifulSoup(urlopen(url), "html.parser")
@@ -21,8 +21,9 @@ class TestWikipedia(unittest.TestCase):
     
     def test_contentExists(self):
         global bsObj
+        # 测试html页面是否有一个"div"节点"id"属性是"mw-content-text"。
         content = bsObj.find("div", {"id": "mw-content-text"})
-        self.assertIsNotNone(content)
+        self.assertIsNotNone(content) 
     
 if __name__ == '__main__':
     unittest.main()
