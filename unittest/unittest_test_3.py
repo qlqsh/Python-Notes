@@ -31,7 +31,7 @@ class TestWikipedia(unittest.TestCase):
         global bsObj
         global url
         pageTitle = bsObj.find("h1").get_text()
-        urlTitle = url[(url.index("/wiki/")+6):]
+        urlTitle = url[(url.index("/wiki/")+6):] # 返回"/wiki/"右边到结尾的字符串。
         urlTitle = urlTitle.replace("_", " ")
         urlTitle = unquote(urlTitle)
         # 返回字符串列表，而不是布尔变量。主要是调试起来更加方便、详细。出现异常情况：
